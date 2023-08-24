@@ -6,12 +6,12 @@ export const handler = function (event, context, callback) {
   var pathParameters = event.pathParameters;
   var stageVariables = event.stageVariables;
 
-  var resource = event.routeArn; // root resource
+  var resource = event.routeArn || event.methodArn; // root resource
   var authResponse = {};
   var condition = {};
   condition.IpAddress = {};
 
-  if (headers.authorization === "mysupersecretkey") {
+  if (headers.authorization === "mysupersecretkey" || headers.Authorization === "mysupersecretkey") {
     callback(null, generateAllow('me', resource));
   } else {
     callback("Unauthorized");
