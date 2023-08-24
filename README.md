@@ -1,1 +1,1 @@
-Simple Lambda authorizer designed for API Gateway in HTTP API mode
+Simple Lambda authorizer designed for API Gateway in HTTP API and REST API
